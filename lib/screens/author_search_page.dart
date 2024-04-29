@@ -44,8 +44,10 @@ class AuthorSearchPage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  AuthorWorksPage(authorId: authorId),
+                              builder: (context) => BlocProvider.value(
+                                value: BlocProvider.of<AuthorCubit>(context),
+                                child: AuthorWorksPage(authorId: authorId),
+                              ),
                             ),
                           );
                         },

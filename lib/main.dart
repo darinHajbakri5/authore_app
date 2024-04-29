@@ -11,12 +11,12 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Author Search',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: BlocProvider(
-        create: (_) => AuthorCubit(apiClient: AuthorApiClient()),
-        child: AuthorSearchPage(),
+    return BlocProvider(
+      create: (_) => AuthorCubit(apiClient: AuthorApiClient()),
+      child: MaterialApp(
+        title: 'Author Search',
+        theme: ThemeData(primarySwatch: Colors.blue),
+        home: AuthorSearchPage(),
       ),
     );
   }
